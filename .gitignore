@@ -1,4 +1,4 @@
 # Ignorar carpetas del proyecto
-vs/
+.vs/
 bin/
 obj/
