@@ -1,9 +1,12 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Numerics;
+using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +17,7 @@ namespace HundirLaFlota
         private Board myBoard = new Board(false);
         private Board enemyBoard = new Board(true);
         private static Random rd = new Random();
+        private static ILog log = Logs.GetLogger();
 
         public Game() { }
 
@@ -86,7 +90,8 @@ namespace HundirLaFlota
                     Console.WriteLine(message);
                     message = "";
                 }
-                Console.Write($"Coordenada para el {myBoard.GetShipsLength() + 1}º barco: ");
+                //Console.Write($"Coordenada para el {myBoard.GetShipsLength() + 1}º barco: ");
+                Console.Write(string.Format(Program.rm.GetString("ask_coord"), myBoard.GetShipsLength() + 1));
                 string coord = Console.ReadLine();
                 if (coord != "")
                 {
@@ -99,14 +104,18 @@ namespace HundirLaFlota
                             error = false;
                             Console.WriteLine("1. Horizontal");
                             Console.WriteLine("2. Vertical");
-                            Console.Write("¿Que orientación quieres? ");
+                            //Console.Write("¿Que orientación quieres? ");
+                            Console.Write(Program.rm.GetString("ask_direction"));
                             if (!Int32.TryParse(Console.ReadLine(), out answer) || (answer < 1 || answer > 2))
                                 error = true;
                         } while (error);
 
                         bool horizontal = answer == 1 ? true : false;
                         if (myBoard.AddShip(coord, horizontal))
+                        {
                             message = "Barco colocado";
+                            log.Info(message);
+                        }
                         else
                             message = "Esas coordenadas coinciden con otro barco";
                     }
@@ -127,6 +136,7 @@ namespace HundirLaFlota
 
                 enemyBoard.AddShip(coord, dir); // If the coordinate is busy, ship will not be placed
             } while (enemyBoard.GetShipsLength() < enemyBoard.GetShipSizes());
+            log.Info("Barcos enemigos colocados");
         }
 
         public string PickRandomCoord()
