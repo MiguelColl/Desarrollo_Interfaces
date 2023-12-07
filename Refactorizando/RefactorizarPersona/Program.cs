@@ -24,7 +24,7 @@
 
             Console.WriteLine();
             Console.WriteLine("Cambiamos los datos");
-            p.ActualizarDatos("Pepe", 32, "c/desconocida");
+            p.ActualizarDatos("Pepe", 32, "c/desconocida", 76.5f, 1.84f);
             i.MostrarPersona(p);
         }
     }

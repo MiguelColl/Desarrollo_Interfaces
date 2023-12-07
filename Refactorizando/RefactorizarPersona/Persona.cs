@@ -29,11 +29,13 @@ namespace RefactorizarPersona
             return Peso / (Altura * Altura);
         }
 
-        public void ActualizarDatos(string nombre, int edad, string direccion)
+        public void ActualizarDatos(string nombre, int edad, string direccion, float peso, float altura)
         {
             Nombre = nombre;
             Edad = edad;
             Direccion = direccion;
+            Peso = peso;
+            Altura = altura;
         }
 
 
