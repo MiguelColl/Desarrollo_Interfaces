@@ -1,0 +1,35 @@
+﻿<Application x:Class="CalculoNIF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CalculoNIF"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="labelStyleTitle" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style x:Key="labelStyleMessage" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="errorStyleTitle" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Label.Foreground" Value=" #f00000 "></Setter>
+        </Style>
+
+        <Style x:Key="errorStyleMessage" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Label.Foreground" Value=" #f00000 "></Setter>
+        </Style>
+
+        <Style x:Key="textbox" TargetType="{x:Type TextBox}">
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Margin" Value="0,25,0,0" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+    </Application.Resources>
+</Application>

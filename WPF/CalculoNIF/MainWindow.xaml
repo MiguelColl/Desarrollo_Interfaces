@@ -1,0 +1,48 @@
+﻿<Window x:Class="CalculoNIF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculoNIF"
+        mc:Ignorable="d"
+        Title="Calculo de NIF" Height="450" Width="450">
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush>#f8d2ff</SolidColorBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="1" Style="{StaticResource labelStyleTitle}">
+            Introduce tu número de NIF
+        </Label>
+        <TextBox x:Name="textBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource textbox}" TextChanged="TextBox_TextChanged" />
+
+        <Grid Grid.Column="1" Grid.Row="1" x:Name="resultadoContainer" Visibility="Hidden">
+            <Label Style="{StaticResource labelStyleTitle}" Margin="0,74,0,74">
+                Resultado
+            </Label>
+            <Label x:Name="resultado" Style="{StaticResource labelStyleMessage}" Margin="0,93,0,53">
+            </Label>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1" x:Name="error" Visibility="Hidden">
+            <Label Style="{StaticResource errorStyleTitle}" Margin="0,142,0,0">
+                Error
+            </Label>
+            <Label Style="{StaticResource errorStyleMessage}" Margin="0,162,0,10">
+                Debes introducir un número de 8 dígitos
+            </Label>
+        </Grid>
+    </Grid>
+</Window>
