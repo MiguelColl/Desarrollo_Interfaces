@@ -7,6 +7,20 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ExpenseItHome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ExpenseReportPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ExpenseItHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ExpenseReportPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
